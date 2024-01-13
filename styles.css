@@ -12,6 +12,7 @@ body {
   margin: 0;
   background: #0d1117;
   font-family: system-ui, -apple-system, BlinkMacSystemFont;
+
 }
 
 nav {
@@ -134,4 +135,41 @@ a:is(:visited, :active) {
 
 body.open .menu-items {
   display: flex;
+}
+.main_hero_block {
+  width: 100%;
+  height: 620px;
+  display: inline-flex;
+  
+}
+.sideArticle{
+  width: 65%;
+  height:620px ;
+  display: flex;
+  flex-wrap: wrap;
+  align-content: center;
+
+}
+.sideArticleImage{
+  background-image: url("src/sideImage.png");
+  background-repeat: no-repeat;
+  background-size:cover;
+  width: 35%;
+  height: 620px;
+}
+.contantArticleBlock{
+  flex-direction: row;
+  padding-left: 20%;
+}
+.contantArticleBlockStyle{
+  background-color: #0d1117;
+  color: #ffffff;
+  padding: 0px 5px;
+}
+.articleButton{
+  border-radius: 7px;
+  border-color: #ae00ff;
+  padding: 10px;
+  background-color: #dd00ffad;
+  color: whitesmoke;
 }
