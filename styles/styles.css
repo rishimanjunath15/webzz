@@ -168,8 +168,8 @@ body.open .menu-items {
 }
 .articleButton{
   border-radius: 7px;
-  border-color: #ae00ff;
+  border: none;
   padding: 10px;
-  background-color: #dd00ffad;
+  background-color: #ff0000cc;
   color: whitesmoke;
 }
