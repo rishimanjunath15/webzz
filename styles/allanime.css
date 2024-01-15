@@ -1,0 +1,48 @@
+.grid-container-allanime{
+    display: grid;
+    grid-template-columns: auto auto auto auto;
+    padding: 10px;
+}
+.grid-item-allanime{
+    /* border: 1px solid rgba(225,255,255,0.8); */
+    font-size: 30px;
+    text-align: center;
+    display: flexbox;
+    justify-content: flex-start;
+    align-items: center;
+    overflow: hidden;
+    margin: 10px;
+    padding: 10px 0px;
+    border-radius: 5px; 
+    height:560px;
+}
+.animeimage , .animetitle , .animedetail{
+    display: block;
+    color:whitesmoke;
+
+}
+/* .grid-container-allanime .grid-item-allanime .animedetail{
+    padding: 1%;
+    height: 15%;
+}
+.grid-container-allanime .grid-item-allanime .animetitle{
+    height: 15%;
+}
+.grid-container-allanime .grid-item-allanime .animeimage{
+    height: 70%;
+}
+.grid-container-allanime .grid-item-allanime .animedetail img{
+    flex-shrink: 0;
+    min-width: 100%;
+    min-height: 100%;
+}
+.grid-container-allanime .grid-item-allanime .animedetail p{
+    font-size: 0.9rem;
+} */
+.animeimage img{
+    border-radius: 5px;
+}
+.grid-container-allanime > .grid-item-allanime:hover{
+    border: 5px solid gold;
+    color: gold !important;
+}

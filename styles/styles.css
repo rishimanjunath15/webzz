@@ -173,3 +173,6 @@ body.open .menu-items {
   background-color: #ff0000cc;
   color: whitesmoke;
 }
+.articleButton:hover{
+  border: 3px solid black;
+}
