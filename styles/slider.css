@@ -1,0 +1,41 @@
+.sidenav{
+    height: 100%;
+    width:0;
+    position: fixed;
+    z-index: 1;
+    top: 0;
+    right: 0;
+    background-color: #0d1117;
+    overflow: hidden;
+    transition: 0.5s;
+    padding-top: 60px;
+}
+.sidenav a{
+    padding: 8px 8px 8px 32px;
+    text-decoration: none;
+    font-size: 25px;
+    color:whitesmoke;
+    display: block;
+    transition: 0.3s;
+
+}
+.sidenav a:hover{
+    color: #f1f1f1;
+
+}
+.sidenav .closebtn{
+    position: absolute;
+    top: 0;
+    right: 25px;
+    font-size: 36px;
+    margin-left: 50px;
+}
+.sidenav > ul > li {
+    color: whitesmoke;
+}
+.theBellNotification:hover{
+    cursor: pointer;
+    border: 2px solid whitesmoke;
+    border-radius: 2px;
+    
+}
