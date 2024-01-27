@@ -42,17 +42,66 @@
           <img src="src/user_3177440[44].png" />
         </div>
       </nav>
-    <div class="grid-container">
-        <div class="grid-item"><img src="images/pic1.png" alt="pic1.png"></div>
-        <div class="grid-item"><img src="images/pic2.png" alt="pic2.png"></div>
-        <div class="grid-item"><img src="images/pic3.png" alt="pic3.png"></div>
-        <div class="grid-item"><img src="images/pic4.png" alt="pic4.png"></div>
-        <div class="grid-item"><img src="images/pic5.png" alt="pic5.png"></div>
-        <div class="grid-item"><img src="images/pic6.png" alt="pic6.png"></div>
-        <div class="grid-item"><img src="images/pic7.png" alt="pic7.png"></div>
-        <div class="grid-item"><img src="images/pic8.png" alt="pic8.png"></div>
-        <div class="grid-item"><img src="images/pic9.png" alt="pic9.png"></div>
-        <div class="grid-item"><img src="images/pic10.png" alt="pic10.png"></div>
+  <main id="main">
+      <div class="grid-container">
+          <button class="grid-item" onclick="func(1)"><img src="images/pic1.png" alt="pic1.png"></button>
+          <button class="grid-item" onclick="func(2)"><img src="images/pic2.png" alt="pic2.png"></button>
+          <button class="grid-item" onclick="func(3)"><img src="images/pic3.png" alt="pic3.png"></button>
+          <button class="grid-item" onclick="func(4)"><img src="images/pic4.png" alt="pic4.png"></button>
+          <button class="grid-item" onclick="func(5)"><img src="images/pic5.png" alt="pic5.png"></button>
+          <button class="grid-item" onclick="func(6)"><img src="images/pic6.png" alt="pic6.png"></button>
+          <button class="grid-item" onclick="func(7)"><img src="images/pic7.png" alt="pic7.png"></button>
+          <button class="grid-item" onclick="func(8)"><img src="images/pic8.png" alt="pic8.png"></button>
+          <button class="grid-item" onclick="func(9)"><img src="images/pic9.png" alt="pic9.png"></button>
+          <button class="grid-item" onclick="func(10)"><img src="images/pic10.png" alt="pic10.png"></button>
+      </div>
+    </main>
+
+    <div id="imagedisplay" class="center" style="display: none;">
+      <div class="inImageDisplayleftButtonInDiv">
+        <button class="inImageDisplayLeftButton" id="imageLeftButton" onclick="imagesubstraction()"><</button>
+      </div>
+      <div class="imageBlockOnDisplay center">
+            <img id = "img" class="center" src="images/pic10.png" alt="image" >
+      </div>
+      <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+      <div class="inImageDisplayrightButtonInDiv">
+        
+        <button class="inImageDisplayrightButton" id="imageRightButton" onclick="imageadditon()">
+          >
+        </button>
+      </div>
     </div>
 </body>
+
+<script>
+  var indexImage=0;
+  function func(indexImageFromInput){
+  document.getElementById("imagedisplay").style.display="block";
+  indexImage = indexImageFromInput;
+  let imageName = "images/pic"+indexImage+".png";
+  console.log("images/pic"+indexImage+".png");
+  document.getElementById("img").setAttribute('src',imageName);
+ }
+ function closeNav(){
+  document.getElementById("imagedisplay").style.display="none";
+ }
+
+function imagesubstraction(){
+  if(indexImage>1){
+    indexImage=indexImage-1;
+    console.log(indexImage);
+    let imageName = "images/pic"+indexImage+".png";
+    document.getElementById("img").setAttribute('src',imageName);
+  }
+}
+function imageadditon(){
+  if(indexImage<10){
+    indexImage=indexImage+1;
+    console.log(indexImage);
+    let imageName = "images/pic"+indexImage+".png";
+    document.getElementById("img").setAttribute('src',imageName);
+  }
+}
+</script>
 </html>

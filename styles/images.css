@@ -2,7 +2,6 @@
     box-sizing: border-box;
 }
 
-
 .grid-container{
     display: grid;
     grid-template-columns: auto auto auto;
@@ -19,6 +18,12 @@
     margin: 10px;
     border-radius: 5px;
 }
+.grid-container > button{
+    background: #0d1117;;
+    border: none;
+    outline: none;
+    box-shadow: none;
+}
 /* .grid-container{
     display: flex;
     justify-content: space-evenly;
@@ -33,4 +38,70 @@
     flex-shrink: 0;
     min-width: 100%;
     min-height: 100%;
+}
+
+.center{
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 1;
+    width: 60%;
+    height: 60%;
+    background-color:whitesmoke;
+    opacity: 1;
+    border-radius: 1%;
+}
+
+.inImageDisplayleftButtonInDiv{
+    position: fixed;
+    top: 45%;
+    bottom: 50%;
+    left: 5%;
+    transform: translate(-50%, -50%);
+    border-radius: 50%;
+    background-color: #0d1117;
+    height: 30px;
+    width: 30px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.closebtn{
+    position: absolute;
+    top: 0;
+    right: 25px;
+    font-size: 2rem;
+    color: #0d1117;
+}
+.inImageDisplayrightButtonInDiv{
+    position: fixed;
+    top: 45%;
+    bottom: 50%;
+    right: 2%;
+    transform: translate(-50%, -50%);
+    background-color: #0d1117;
+    border-radius: 50%;
+    height: 30px;
+    width: 30px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+   
+}
+#img{
+    width: 95%;
+    height: 95%;
+}
+.imageBlockOnDisplay{
+    width: 85%;
+    height: 90%;    
+}
+#imageLeftButton{
+    all: unset;
+    color: whitesmoke;
+}
+#imageRightButton{
+    all: unset;
+    color: whitesmoke;
 }
