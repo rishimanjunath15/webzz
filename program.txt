@@ -1,0 +1,380 @@
+Program 1
+#include<stdio.h>
+
+#define INF 999
+
+#define MAX 100
+int p[MAX],c[MAX][MAX],t[MAX][2];
+int find(int v)
+{
+while(p[v])
+v=p[v];
+return v;
+}
+void union1(int i,int j)
+{
+p[j]=i;
+}
+void kruskal(int n)
+{
+int i,j,k,u,v,min,res1,res2,sum=0;
+for(k=1;k<n;k++)
+{
+min=INF; 
+for(i=1;i<n-1;i++)
+{
+for(j=1;j<=n;j++)
+{
+if(i==j)continue; 
+if(c[i][j]<min)
+{
+u=find(i);
+v=find(j); if(u!=v)
+{
+res1=i; res2=j; 
+min=c[i][j];
+}
+}
+}
+}
+union1(res1,find(res2)); 
+t[k][1]=res1;
+t[k][2]=res2; 
+sum=sum+min;
+}
+printf("\nCost of spanning tree is=%d",sum); 
+printf("\nEdgesof spanning tree are:\n");
+for(i=1;i<n;i++)
+printf("%d -> %d\n",t[i][1],t[i][2]);
+}
+int main()
+{
+int i,j,n;
+printf("\nEnter the n value:"); 
+scanf("%d",&n); for(i=1;i<=n;i++)
+p[i]=0;
+printf("\nEnter the graph data:\n"); 
+for(i=1;i<=n;i++)
+for(j=1;j<=n;j++) 
+scanf("%d",&c[i][j]); 
+kruskal(n);
+return 0;
+}
+
+PROGRAM 6:
+
+#include<stdio.h>
+
+int w[10],p[10],n;
+
+int max(int a, int b)
+
+{
+
+return a>b?a:b;
+
+}
+
+int knap(int i,int m)
+
+{
+
+if(i==n) return w[i]>m?0:p[i];
+
+if(w[i]>m) return knap(i+1,m);
+
+return max(knap(i+1,m), knap(i+1,m-w[i])+p[i]);
+
+}
+
+int main()
+
+{
+
+int m,i,max_profit;
+
+printf("\nEnter the no. of objects:");
+
+scanf("%d",&n);
+
+printf("\nEnter the knapsack capacity:");
+
+scanf("%d",&m);
+
+printf("\nEnter profit followed by weight:\n"); for(i=1;i<=n;i++)
+
+scanf("%d %d",&p[i],&w[i]);
+
+max_profit=knap(1,m);
+
+printf("\nMax profit=%d", max_profit);
+
+return 0;
+
+}
+
+program 2
+#include<stdio.h>
+
+// #include<conio.h> 
+
+#define INF 999
+int prim(int c[10][10],int n,int s)
+{
+int v[10],i,j,sum=0,ver[10],d[10],min,u; 
+for(i=1;i<=n;i++)
+{
+ver[i]=s;
+d[i]=c[s][i];
+v[i]=0;
+} v[s]=1;
+ver[i]=s; d[i]=c[s][i]; v[i]=0;
+for(i=1;i<=n-1;i++)
+{
+min=INF; 
+for(j=1;j<=n;j++) 
+if(v[j]==0 && d[j]<min)
+{
+min=d[j]; 
+u=j;
+} 
+v[u]=1;
+sum=sum+d[u];
+printf("\n%d -> %d sum=%d",ver[u],u,sum);
+for(j=1;j<=n;j++) 
+if(v[j]==0 && c[u][j]<d[j])
+{
+d[j]=c[u][j]; 
+ver[j]=u;
+}
+}
+return sum;
+}
+void main()
+{
+int c[10][10],i,j,res,s,n; 
+clrscr();
+printf("\nEnter n value:");
+
+scanf("%d",&n);
+
+printf("\nEnter the graph data:\n"); 
+for(i=1;i<=n;i++)
+for(j=1;j<=n;j++) 
+scanf("%d",&c[i][j]); 
+printf("\nEnter the souce node:");
+scanf("%d",&s);
+res=prim(c,n,s);
+printf("\nCost=%d",res); 
+getch();
+}
+
+program 3a
+
+#include<stdio.h> 
+
+#include<conio.h> 
+
+#define INF 999
+int min(int a,int b)
+{
+return(a<b)?a:b;
+}
+void floyd(int p[][10],int n)
+{
+int i,j,k; 
+for(k=1;k<=n;k++) 
+for(i=1;i<=n;i++) 
+for(j=1;j<=n;j++)
+p[i][j]=min(p[i][j],p[i][k]+p[k][j]);
+}
+void main()
+{
+inta[10][10],n,i,j; 
+clrscr();
+printf("\nEnter the n value:"); 
+scanf("%d",&n);
+printf("\nEnter the graph data:\n"); 
+for(i=1;i<=n;i++)
+for(j=1;j<=n;j++) 
+scanf("%d",&a[i][j]); 
+floyd(a,n);
+printf("\nShortest path matrix\n");
+for(i=1;i<=n;i++)
+{
+for(j=1;j<=n;j++) 
+printf("%d ",a[i][j]); 
+printf("\n");
+}
+getch();
+}
+
+ program 3b
+ 
+ #include<stdio.h>
+
+void warsh(int p[][10],int n)
+
+{
+int i,j,k;
+for(k=1;k<=n;k+
++)
+for(i=1;i<=n;i++
+)
+for(j=1;j<=n;j++
+)
+p[i][j]=p[i][j] || p[i][k] && p[k][j];
+}
+int main()
+{
+int a[10][10],n,i,j;
+printf("\nEnter the n value:");
+scanf("%d",&n);
+printf("\nEnter the graph data:\n");
+for(i=1;i<=n;i++)
+for(j=1;j<=n;j++)
+scanf("%d",&a[i][j]);
+warsh(a,n);
+printf("\nResultant path matrix\n");
+for(i=1;i<=n;i++)
+  {
+  for(j=1;j<=n;j++)
+
+printf("%d 
+
+",a[i][j]);
+printf("\n");
+}
+return 0;
+}
+
+program 5
+
+#include<stdio.h>
+
+// #include<conio.h>
+
+int temp[10], k = 0
+
+void sort(int a[] [10],int id[], int n)
+
+{
+
+int i,j;
+
+for(i=1;i<=n;i++)
+
+{ if(id[i]==0) { temp[++k]=i;
+
+i * d[i] = - 1
+
+or( j = 1; j <= n ;j++) { if(a[i][j]==18.8. i * d * [j]! = - 1 ) id[j]--; } i = 0 }}}
+
+void main()
+
+{
+
+int a[10][10] ,id[10],n,i,j;
+
+// clrscr();
+
+printf("\nEnter the n value:");
+
+scanf("%d",&n);
+
+for ( i = 1; i <= n ;i++)
+
+printf("\nEnter the graph data:\n");
+
+i * d[i] = 0
+
+for ( i = 1; i <= n ;i++)
+
+{
+
+rr( j = 1; j <= n ;j++)
+
+scanf("%d",&a[i][j]);
+
+if(a[i][j]==1)
+ id[j]++;
+}
+
+
+for(i=1;i<=n;i++)
+
+printf("\nShortest distance from %d to %d is %d",s,i,d[i]);
+
+return 0;
+}
+
+program 4
+
+Program:
+
+#include<stdio.h>
+
+#define INF 999
+
+void dijkstra(int c[10][10], int n,int s,int d[10])
+
+{
+
+int v[10], min,u,i,j;
+
+for(i=1;i<=n;i++)
+
+{ d[i]=c[s][i]; v[i]=0;
+
+}
+
+v[s]=1;
+
+for(i=1;i<=n;i++)
+
+{
+
+min=INF; for(j=1;j<=n;j++) if(v[j]==0 && d[j]<min) { min=d[j]; u=j; } v[u]=1; for(j=1;j<=n;j++) if(v[j]==0 && (d[u]+c[u][j])<d[j]) d[j]=d[u]+c[u][j];
+
+}
+
+}
+
+int main()
+
+{
+
+int c[10][10],d[10],i,j,s,sum,n;
+
+printf("\nEnter n value:");
+
+scanf("%d",&n);
+
+printf("\nEnter the graph data:\n");
+
+for(i=1;i<=n;i++)
+
+for(j=1;j<=n;j++)
+
+scanf("%d",&c[i][j]);
+
+printf("\nEnter the souce node:");
+
+scanf("%d",&s);
+
+dijkstra (c,n,s,d);
+sort(a,id,n);
+
+if(k!=n)
+
+printf("\nTopological ordering not possible"); else
+
+{ printf("\nTopological ordering is:"); for(i=1;i<=k;i++)
+
+printf("%d ",temp[i]);
+
+}
+
+// getch();
+
+}
